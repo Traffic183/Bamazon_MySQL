@@ -89,11 +89,13 @@ let finalizePurchase = (product, quantity) => {
   );
 }
 
+//let purchaseTotal() = ()
 //Add show the customer the total cost of their purchase.
+//quantity time product * price = 
 
 let checkInventory = (choiceId, inventory) => {
   for (var i = 0; i < inventory.length; i++) {
-    if (inventory[i].item_id === choiceId) {
+    if (inventory[i].item_id === choiceId) {         
       return inventory[i];
     }
   }
