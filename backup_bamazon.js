@@ -2,10 +2,6 @@ var mysql = require("mysql");
 var inquirer = require("inquirer");
 var chalk = require("chalk");
 var clc = require("cli-color");
-// const cTable = require("console.table");
-
-// const cTable = require("console.table");
-
 
 var connection = mysql.createConnection({
   host: "localhost",
