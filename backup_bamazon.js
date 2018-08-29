@@ -17,9 +17,8 @@ connection.connect(function(err) {
   }
   displayItems();
 });
-
 function displayItems() {
-  console.log(chalk.magenta("\nWELCOME TO BAMAZON!\n"));
+  console.log(chalk.magenta("\nWELCOME TO BAMAZON!" + "\nITEMS AVAILABLE FOR SALE:\n"));
        connection.query("SELECT * FROM products", function(err, res) {
   console.table(res);
   if (err) throw err;

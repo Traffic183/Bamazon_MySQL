@@ -19,7 +19,7 @@ connection.connect((err) => {
 });
 
 let displayItems = () => {
-  console.log(chalk.magenta("\nWELCOME TO BAMAZON!\n"));
+  console.log(clc.magentaBright("\nWELCOME TO BAMAZON!" + "\nITEMS AVAILABLE FOR SALE:\n"));
        connection.query("SELECT * FROM products", function(err, res) {
   console.table(res);
   if (err) throw err;
@@ -47,7 +47,7 @@ function itemIdPrompt(inventory) {
         quantityPrompt(product);
       }
       else {
-        console.log("That item is not in the inventory. Please look again.");
+        console.log(clc.bgRed("That item is not in the inventory. Please look again."));
         displayItems();
       }
     });
@@ -83,15 +83,13 @@ let finalizePurchase = (product, quantity) => {
     "UPDATE products SET stock_quantity = stock_quantity - ? WHERE item_id = ?",
     [quantity, product.item_id],
     (err, res) => {
-      console.log(chalk.cyan("\nYour purchase of " + quantity + " " + product.product_name + " is complete! THANK YOU!"));
+        var subtotal = parseInt(product.price) * quantity;
+        console.log(clc.bgRed("\nCost of Your Order Total Before Tax: $" + subtotal));
+        console.log(chalk.cyan("\nYour purchase of " + clc.redBright(quantity) + " " + clc.magentaBright(product.product_name.toUpperCase()) + " is complete! THANK YOU!"));
       displayItems();
     }
   );
 }
-
-//let purchaseTotal() = ()
-//Add show the customer the total cost of their purchase.
-//quantity time product * price = 
 
 let checkInventory = (choiceId, inventory) => {
   for (var i = 0; i < inventory.length; i++) {
