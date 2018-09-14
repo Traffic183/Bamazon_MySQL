@@ -2,12 +2,13 @@ const mysql = require("mysql");
 const inquirer = require("inquirer");
 const chalk = require("chalk");
 const clc = require("cli-color");
+const cTable = require("console.table");
 
 let connection = mysql.createConnection({
   host: "localhost",
   port: 3306,
   user: "root",
-  password: "traffic12345",
+  password: "traffic1234",
   database: "bamazon_DB"
 });
 
@@ -39,7 +40,7 @@ function itemIdPrompt(inventory) {
         }
       }
     ])
-    .then(function(val) {
+    .then((val) => {
       userQuitOption(val.choice);
       let choiceId = parseInt(val.choice);
       let product = checkInventory(choiceId, inventory);

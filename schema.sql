@@ -11,7 +11,7 @@ price DECIMAL(19,4) NOT NULL,
 stock_quantity INT NOT NULL
 );
 
-INSERT INTO products(product_name, department_name, price, stock_quantity)
+INSERT INTO products(product_name, price, department_name, stock_quantity)
 VALUES ('Rustic Rubber Gloves', 290.00, 'Kids', 31)
 ,('Handmade Metal Table', 852.00, 'Health', 50)
 ,('Awesome Frozen Fish', 700.00, 'Industrial', 41)
